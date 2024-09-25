@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Carousel -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.theme.min.css
+"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Custom StyleSheet -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="contact.css" />
+
+    <title>Contact</title>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header" class="header">
+      <div class="navigation">
+        <div class="container">
+          <nav class="nav">
+            <div class="nav__logo">
+              <a href="/" class="scroll-link"> Phone Bazar </a>
+            </div>
+
+            <div class="nav__menu">
+              <div class="menu__top">
+                <span class="nav__Product">Phone Bazar</span>
+                <a href="#" class="close__toggle">
+                  <svg>
+                    <use xlink:href="./images/sprite.svg#icon-cross"></use>
+                  </svg>
+                </a>
+              </div>
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a href="index.html" class="nav__link scroll-link">Home</a>
+                </li>
+                <li class="nav__item">
+                  <a href="Producties.html" class="nav__link scroll-link"
+                    >Product</a
+                  >
+                </li>
+                <li class="nav__item">
+                  <a href="Blog.html" class="nav__link scroll-link">Blog</a>
+                </li>
+                <li class="nav__item">
+                  <a href="contact.html" class="nav__link scroll-link"
+                    >Contact</a
+                  >
+                </li>
+                <li class="nav__item">
+                  <a href="Research.html" class="nav__link scroll-link"
+                    >Research</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="nav__icons">
+              <a href="#" class="icon__item">
+                <svg class="icon__user">
+                  <use xlink:href="./images/sprite.svg#icon-user"></use>
+                </svg>
+              </a>
+
+              <a href="#" class="icon__item">
+                <svg class="icon__search">
+                  <use xlink:href="./images/sprite.svg#icon-search"></use>
+                </svg>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- contact form -->
+<form class="cf">
+  <h1>Contact Us</h1>
+  <div class="half left cf">
+    <input type="text" id="input-name" onkeyup="validateName()" placeholder="Name" required>
+    <p id="nError"></p>
+    <input type="text" onkeyup="validateEmail()" id="input-email" placeholder="Email address" required>
+    <p id="eError"></p>
+    <input type="text" onkeyup="validateContact()" id="input-phone" placeholder="Mobile number" required>
+    <p id="pError"></p>
+    <input type="text" id="input-subject" placeholder="Subject" required>
+  </div>
+  <div class="half right cf">
+    <textarea name="message" type="text" id="input-message" placeholder="Message"  required></textarea>
+  </div>  
+  <input type="submit" value="Submit" id="input-submit" onclick="notice()">
+</form>
+   <!-- Footer -->
+   <script type="text/javascript">
+     let nf = document.getElementById('input-name');
+     let ef = document.getElementById('input-email');
+     let pf = document.getElementById('input-phone');
+
+     let nRegex = /^[a-zA-Z ]{2,30}$/;
+     function validateName(){
+      let nE = document.getElementById('nError');
+      if(nf.value.match(nRegex)){
+        nE.innerHTML = '';
+      }
+      else{
+        nE.innerHTML= 'Invalid name format!'
+     }
+    }
+
+    let eRegex = /[a-z A-Z 0-9]+\@[A-Za-z]+\.[a-zA-Z]/g;
+    function validateEmail(){
+      let eE = document.getElementById('eError');
+      if(ef.value.match(eRegex)){
+        eE.innerHTML = '';
+      }
+      else{
+        eE.innerHTML= 'Invalid email format!'
+     }
+    }
+    let pRegex = /[0-9]{9,10}$/;
+    function validateContact(){
+      let pE = document.getElementById('pError');
+      if(pf.value.match(pRegex)){
+        pE.innerHTML = '';
+      }
+      else{
+        pE.innerHTML= 'either invalid format or not enough digits(least 9 required) '
+     }
+    }
+   function notice(){
+    if(nf.value.match(nRegex) && pf.value.match(pRegex) && ef.value.match(eRegex)){
+      alert("Succesfully submitted");
+    }
+   }
+  </script>
+   <footer id="footer" class="section footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer-top__box">
+          <h3>EXTRAS</h3>
+          <a href="#">Brands</a>
+          <a href="#">Gift Certificates</a>
+          <a href="#">Affiliate</a>
+          <a href="#">Specials</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-top__box">
+          <h3>INFORMATION</h3>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-top__box">
+          <h3>MY ACCOUNT</h3>
+          <a href="#">My Account</a>
+          <a href="#">Order History</a>
+          <a href="#">Wish List</a>
+          <a href="#">Newsletter</a>
+          <a href="#">Returns</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer-bottom__box">
+
+      </div>
+      <div class="footer-bottom__box">
+
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- PopUp -->
+  <div class="popup hide__popup">
+    <div class="popup__content">
+      <div class="popup__close">
+        <svg>
+          <use xlink:href="./images/sprite.svg#icon-cross"></use>
+        </svg>
+      </div>
+      <div class="popup__left">
+        <div class="popup-img__container">
+          <img class="popup__img" src="./images/popup.jpg" alt="popup">
+        </div>
+      </div>
+      <div class="popup__right">
+        <div class="right__content">
+          <h1>Get Discount <span>30%</span> Off</h1>
+          <p>Sign up to our newsletter and save 30% for you next purchase. No spam, we promise!
+          </p>
+          <form action="#">
+            <input type="email" placeholder="Enter your email..." class="popup__form">
+            <a href="#">Subscribe</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Go To -->
+
+  <a href="#header" class="goto-top scroll-link">
+    <svg>
+      <use xlink:href="./images/sprite.svg#icon-arrow-up"></use>
+    </svg>
+  </a>
+
+
+  <!-- Glide Carousel Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+  <!-- Animate On Scroll -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="./js/products.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/slider.js"></script>
+
+ 
+</body>
+
+</html>
